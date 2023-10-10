@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>produk html</title>
+    <title>listing produk php</title>
     <link rel="stylesheet" href="stylelistingproduk.css">
     <h1 class="gallery-heading">TITI GALLERY</h1>
 </head>
