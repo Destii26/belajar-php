@@ -5,6 +5,39 @@ if (!isset($_SESSION['name'])) {
     header('location: login.php');
 }
 
+date_default_timezone_set('Asia/Jakarta');
+
+$dayList = array(
+    'Sunday' => 'Minggu',
+    'Monday' => 'Senin',
+    'Tuesday' => 'Selasa',
+    'Wednesday' => 'Rabu',
+    'Thursday' => 'Kamis',
+    'Friday' => 'Jumat',
+    'Saturday' => 'Sabtu'
+);
+
+$monthList = array(
+    'January' => 'Januari',
+    'February' => 'Februari',
+    'March' => 'Maret',
+    'April' => 'April',
+    'May' => 'Mei',
+    'June' => 'Juni',
+    'July' => 'Juli',
+    'August' => 'Agustus',
+    'September' => 'September',
+    'October' => 'Oktober',
+    'November' => 'November',
+    'December' => 'Desember'
+);
+
+$day = $dayList[date('l')];
+$month = $monthList[date('F')];
+$time = $day . ', ' . date('d ') . $month . date(' Y H:i:s');
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +46,7 @@ if (!isset($_SESSION['name'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Online Shop</title>
+    <title>data product</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -199,7 +232,7 @@ if (!isset($_SESSION['name'])) {
                         <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?= $_SESSION['name'];?></a>
+                        <a href="#" class="d-block"><?= $_SESSION['name']; ?></a>
                     </div>
                 </div>
 
@@ -275,12 +308,12 @@ if (!isset($_SESSION['name'])) {
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper mt-3">
-            
+
 
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    
+
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
                         <div class="col-lg-4 col-6">
@@ -310,7 +343,7 @@ if (!isset($_SESSION['name'])) {
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                <?php
+                                    <?php
                                     require "koneksi.php";
 
                                     $query = mysqli_query($conn, "SELECT * FROM customers");
@@ -333,7 +366,7 @@ if (!isset($_SESSION['name'])) {
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                <?php
+                                    <?php
                                     require "koneksi.php";
 
                                     $query = mysqli_query($conn, "SELECT * FROM vendors");
