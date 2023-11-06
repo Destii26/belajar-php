@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         }
     } else {
 
-        $imageName = $oldImageName;
+        $gambar = $oldImageName;
     }
 
     // Lakukan query UPDATE sesuai dengan informasi yang diperoleh
@@ -58,4 +58,3 @@ if (isset($_POST['submit'])) {
         echo "Terjadi kesalahan: " . mysqli_error($conn);
     }
 }
-?>

@@ -17,35 +17,33 @@ if (isset($_POST['submit'])) {
     $direktori = "upload/";
 
     if (!empty($lokasi_file)) {
-            $gambar = $rand . "_" . $nama_file;
-            move_uploaded_file($lokasi_file,$direktori .  $gambar);
-           
-            // Using prepared statement to prevent SQL injection
-            $sql = "INSERT INTO products (product_name, category_id, product_code, description, price, unit, stock, image) VALUES ('$product', '$category', '$code', '$description', '$price', '$unit', '$stock', '$gambar')";
-            $cek = mysqli_query($conn,$sql);
-            if(!$cek){
-                echo "
+        $gambar = $rand . "_" . $nama_file;
+        move_uploaded_file($lokasi_file, $direktori .  $gambar);
+
+        // Using prepared statement to prevent SQL injection
+        $sql = "INSERT INTO products (product_name, category_id, product_code, description, price, unit, stock, image) VALUES ('$product', '$category', '$code', '$description', '$price', '$unit', '$stock', '$gambar')";
+        $cek = mysqli_query($conn, $sql);
+        if (!$cek) {
+            echo "
                 <script>
                 alert('Gagal Memasukan Gambar');
                 location.href = 'tambahproduk.php';
                 </script>
                 ";
-            }else{
-                echo "
+        } else {
+            echo "
                 <script>
                 alert('Produk berhasil ditambahkan');
                 location.href = 'products.php';
                 </script>
                  ";
-            }
-
-            
-        } else {
-            echo "
+        }
+    } else {
+        echo "
             <script>
             alert('Terjadi Kesalahan');
             location.href = 'tambahproduk.php';
             </script>
             ";
-        }
     }
+}

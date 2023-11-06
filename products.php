@@ -356,7 +356,7 @@ $time = $day . ', ' . date('d ') . $month . date(' Y H:i:s');
 
 
                                             // Menentukan jumlah data yang akan ditampilkan per halaman
-                                            $dataPerPage = 5; 
+                                            $dataPerPage = 5;
 
                                             // Menentukan halaman saat ini
                                             if (isset($_GET['page']) && is_numeric($_GET['page'])) {
